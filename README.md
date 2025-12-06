@@ -1,4 +1,4 @@
-#Hangman Java
+# Hangman Java
 Old coding project in which I used Java to create a hangman game.
 # What I Built
 - Word Bank
