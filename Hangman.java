@@ -7,11 +7,12 @@ class HangmanGame {
        Random random = new Random();
        String word = list[random.nextInt(list.length)].toUpperCase();
        StringBuilder hiddenWord = new StringBuilder("_ ".repeat(word.length()));
-       int maxAttempts = 5;
+       int maxAttempts = 6;
        int wrongGuesses = 0;
        String guessedLetters = "";
        System.out.println("Welcome to the HANGMAN GAME!");
        System.out.println("Guess the word: " + hiddenWord);
+       System.out.println("+---+\n|   |\n|\n|\n|\n|\n=========");
        while (wrongGuesses < maxAttempts && hiddenWord.toString().contains("_")) {
            System.out.print("\nYour Guess: ");
            char guess = input.nextLine().toUpperCase().charAt(0);
@@ -32,7 +33,22 @@ class HangmanGame {
                System.out.println("'" + guess + "' is incorrect. Attempts left: " + (maxAttempts - wrongGuesses));
            }
            System.out.println("Current Progress: " + hiddenWord);
-       }
+            if (wrongGuesses == 0){
+                System.out.println("+---+\n|   |\n|\n|\n|\n|\n=========");
+            }else if(wrongGuesses == 1){
+                 System.out.println("+---+\n|   |\n|   O\n|\n|\n|\n=========");
+            }else if(wrongGuesses == 2){
+                 System.out.println("+---+\n|   |\n|   O\n|   |\n|\n|\n=========");
+            }else if(wrongGuesses == 3){
+                 System.out.println("+---+\n|   |\n|   O\n|  /|\n|\n|\n=========");
+            }else if(wrongGuesses == 4){
+                 System.out.println("+---+\n|   |\n|   O\n|  /|\\\n|\n|\n=========");
+            }else if(wrongGuesses == 5){
+                 System.out.println("+---+\n|   |\n|   O\n|  /|\\\n|  /\n|\n=========");
+            }else if(wrongGuesses == 6){
+                 System.out.println("+---+\n|   |\n|   O\n|  /|\\\n|  / \\\n|\n=========");
+            }
+       }  
        if (hiddenWord.toString().contains("_")) {
            System.out.println("\nYou lost! The word was: " + word);
        } else {
@@ -41,3 +57,4 @@ class HangmanGame {
        input.close();
    }
 }
+
